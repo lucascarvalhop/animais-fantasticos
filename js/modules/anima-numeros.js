@@ -30,7 +30,7 @@ export default class AnimaNumeros {
     this.numeros.forEach(numero => this.constructor.incrementarNumero(numero));
   }
 
-  // Função que ocorre quando a mutações ocorrer
+  // Função que ocorre quando a mutação ocorrer
   handleMutation(mutation) {
     if (mutation[0].target.classList.contains(this.observerClass)) {
       this.observer.disconnect();
@@ -39,7 +39,7 @@ export default class AnimaNumeros {
   }
 
   // Adiciona o MutationObserver para verificar
-  // quanto a classe ativo é adiciona ao element target
+  // quando a classe ativo é adiciona ao element target
   addMutationObserver() {
     this.observer = new MutationObserver(this.handleMutation);
     this.observer.observe(this.observerTarget, { attributes: true });
