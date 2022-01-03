@@ -33,5 +33,6 @@ export default class Funcionamento{
       this.dataAgora()
       this.ativaAberto()
     }
+    return this
   }
 }
