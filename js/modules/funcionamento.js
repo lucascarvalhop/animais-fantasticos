@@ -1,38 +1,39 @@
-export default class Funcionamento{
-  constructor(funcionamento, activeClass){
-    this.funcionamento = document.querySelector(funcionamento)
-    this.activeClass = activeClass
+export default class Funcionamento {
+  constructor(functionamento, activeClass) {
+    this.funcionamento = document.querySelector(functionamento);
+    this.activeClass = activeClass;
   }
 
-  dadosFuncionamento(){
+  dadosFuncionamento() {
     this.diasSemana = this.funcionamento.dataset.semana.split(',').map(Number);
     this.horarioSemana = this.funcionamento.dataset.horario.split(',').map(Number);
   }
 
-  dadosAgora(){
+  dadosAgora() {
     this.dataAgora = new Date();
     this.diaAgora = this.dataAgora.getDay();
-    this.horarioAgora = this.dataAgora.getUTCHours() -3;
-  }
-  
-  estaAberto(){
-    const semanaAberto = this.diasSemana.indexOf(this.diaAgora) !== -1;
-    const horarioAberto = (this.horarioAgora >= this.horarioSemana[0] && this.horarioAgora < this.horarioSemana[1]);
-    return semanaAberto && horarioAberto
+    this.horarioAgora = this.dataAgora.getUTCHours() - 3;
   }
 
-  ativaAberto(){
-    if (this.estaAberto()){
+  estaAberto() {
+    const semanaAberto = this.diasSemana.indexOf(this.diaAgora) !== -1;
+    const horarioAberto = (this.horarioAgora >= this.horarioSemana[0]
+      && this.horarioAgora < this.horarioSemana[1]);
+    return semanaAberto && horarioAberto;
+  }
+
+  ativaAberto() {
+    if (this.estaAberto()) {
       this.funcionamento.classList.add(this.activeClass);
     }
   }
-  
-  init(){
-    if (this.funcionamento){
-      this.dadosFuncionamento()
-      this.dataAgora()
-      this.ativaAberto()
+
+  init() {
+    if (this.funcionamento) {
+      this.dadosFuncionamento();
+      this.dadosAgora();
+      this.ativaAberto();
     }
-    return this
+    return this;
   }
 }

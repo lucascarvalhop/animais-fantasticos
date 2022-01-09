@@ -17,13 +17,13 @@
 
 .modal {
   background: white;
-  box-sizing: border-box;
   width: 80vw;
   max-width: 600px;
   padding: 40px;
   border: 10px solid #FB5;
   box-shadow: 0 0 0 10px white;
   position: relative;
+  box-sizing: border-box;
 }
 
 @keyframes modal {
@@ -64,8 +64,8 @@
 .modal input {
   width: 100%;
   padding: .7rem .5rem;
-  border: 2px solid #222;
   box-sizing: border-box;
+  border: 2px solid #222;
   border-radius: 0px;
 }
 
